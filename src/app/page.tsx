@@ -1,12 +1,13 @@
 'use client'
+
 import Image from 'next/image'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { ChevronRight, Check, ArrowRight, Menu, X } from 'lucide-react'
-
+import CountUp from 'react-countup'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { FormFranchise } from '@/components/form-franchise'
 
 export default function FranchisePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -23,19 +24,34 @@ export default function FranchisePage() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md">
+      <header className="fixed top-0 left-0 right-0 bg-orange-poyos z-50 shadow-md">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Image src="/placeholder.svg?height=40&width=120" alt="Poyos Logo" width={120} height={40} />
-          <div className="hidden md:flex space-x-6">
-            <a href="#about" className="text-gray-600 hover:text-red-600">Sobre</a>
-            <a href="#numbers" className="text-gray-600 hover:text-red-600">Números</a>
-            <a href="#advantages" className="text-gray-600 hover:text-red-600">Vantagens</a>
-            <a href="#investment" className="text-gray-600 hover:text-red-600">Investimento</a>
-            <a href="#about" className="text-gray-600 hover:text-red-600">Contato</a>
+          <Image src="/images/logo.png" alt="Poyos Logo" width={420} height={400} quality={100} priority className='w-full max-w-36' />
+          <div className="hidden md:flex space-x-6 ">
+            <a href="#about" className="text-gray-50 hover:text-orange-200 transition-colors duration-300">Sobre</a>
+            <a href="#numbers" className="text-gray-50 hover:text-orange-200">Números</a>
+            <a href="#advantages" className="text-gray-50 hover:text-orange-200">Vantagens</a>
+            <a href="#investment" className="text-gray-50 hover:text-orange-200">Investimento</a>
+            <a href="#about" className="text-gray-50 hover:text-orange-200">Contato</a>
           </div>
-          <Button className="hidden md:block bg-red-600 hover:bg-red-700 text-white">
+          <motion.button
+            className="hidden md:block bg-orange-600 hover:bg-orange-600/60 text-white px-4 py-2 rounded-md"
+            animate={{
+              scale: [1, 1.05, 1],
+              boxShadow: [
+                "0px 0px 0px rgba(234, 88, 12, 0)",
+                "0px 0px 20px rgb(247, 174, 38)",
+                "0px 0px 0px rgba(234, 88, 12, 0)"
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse"
+            }}
+          >
             Seja um franqueado
-          </Button>
+          </motion.button>
           <button className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
             <Menu className="h-6 w-6 text-gray-600" />
           </button>
@@ -59,51 +75,43 @@ export default function FranchisePage() {
               <a href="#investment" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Investimento</a>
               <a href="#about" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Contato</a>
             </div>
-            <Button className="w-full bg-orange-poyos hover:bg-orange-poyos/80 text-white">
+            <motion.button
+              className="w-full bg-orange-poyos hover:bg-orange-poyos/80 text-white px-4 py-2 rounded-md"
+              animate={{
+                scale: [1, 1.05, 1],
+                boxShadow: [
+                  "0px 0px 0px rgba(234, 88, 12, 0)",
+                  "0px 0px 20px rgba(234, 88, 12, 0.7)",
+                  "0px 0px 0px rgba(234, 88, 12, 0)"
+                ]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }}
+            >
               Seja um franqueado
-            </Button>
+            </motion.button>
           </div>
         </DialogContent>
       </Dialog>
 
       {/* Hero Section with Contact Form */}
-      <section className="relative min-h-screen flex items-center justify-center bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center py-20">
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <section className="relative min-h-screen flex items-center justify-center bg-[url('../public/images/interna.png')] w-full bg-cover bg-center py-20 ">
+        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
         <div className="relative z-10 container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
           <div className="text-center lg:text-left text-white lg:w-1/2 mb-12 lg:mb-0">
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Seja um franqueado Poyos Crispy Chicken</h1>
             <p className="text-xl lg:text-2xl mb-8">Faça parte da revolução do frango crocante!</p>
-            <Button size="lg" className="bg-orange-poyos hover:bg-orange-poyos/80 text-black text-lg px-8 py-4">
+            <Button size="lg" className="bg-orange-poyos hover:bg-orange-600 text-white text-lg px-8 py-4">
               Saiba mais
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
           </div>
-          <div className="lg:w-1/2 max-w-md w-full">
-            <form className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-center mb-6">Quero ser um franqueado</h2>
-              <div className="mb-4">
-                <Input type="text" placeholder="Nome completo" className="w-full" />
-              </div>
-              <div className="mb-4">
-                <Input type="email" placeholder="E-mail" className="w-full" />
-              </div>
-              <div className="mb-4">
-                <Input type="tel" placeholder="Telefone" className="w-full" />
-              </div>
-              <div className="mb-4">
-                <Input type="text" placeholder="Cidade de interesse" className="w-full" />
-              </div>
-              <div className="mb-6">
-                <Textarea placeholder="Mensagem" rows={4} className="w-full" />
-              </div>
-              <Button type="submit" className="w-full bg-orange-poyos hover:bg-orange-poyos/80 text-white text-lg py-3">
-                Enviar
-              </Button>
-            </form>
-          </div>
+          <FormFranchise />
         </div>
       </section>
-
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-100">
@@ -112,16 +120,16 @@ export default function FranchisePage() {
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
               <h2 className="text-4xl font-bold mb-6">Sobre o Poyos Crispy Chicken</h2>
               <p className="text-lg mb-6">
-                O Poyos Crispy Chicken é uma marca inovadora no mercado de fast-food, 
-                especializada em oferecer o melhor frango crocante da cidade. Fundada em 2015, 
-                nossa marca cresceu rapidamente graças à qualidade incomparável de nossos produtos 
+                O Poyos Crispy Chicken é uma marca inovadora no mercado de fast-food,
+                especializada em oferecer o melhor frango crocante da cidade. Fundada em 2015,
+                nossa marca cresceu rapidamente graças à qualidade incomparável de nossos produtos
                 e ao atendimento excepcional.
               </p>
               <p className="text-lg mb-6">
-                Nossa missão é levar a experiência única do Poyos Crispy Chicken para todo o Brasil, 
+                Nossa missão é levar a experiência única do Poyos Crispy Chicken para todo o Brasil,
                 e estamos em busca de empreendedores apaixonados para se juntar a nós nessa jornada.
               </p>
-              <Button className="bg-red-600 hover:bg-red-700 text-white">
+              <Button className="bg-orange-600 hover:bg-orange-700 text-white">
                 Saiba mais sobre nossa história
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -134,26 +142,14 @@ export default function FranchisePage() {
       </section>
 
       {/* Numbers Section */}
-      <section id="numbers" className="py-20 bg-red-600 text-white">
+      <section id="numbers" className="py-20 bg-orange-600 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Poyos Crispy Chicken em números</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <p className="text-6xl font-bold mb-2">50+</p>
-              <p className="text-xl">Unidades</p>
-            </div>
-            <div className="text-center">
-              <p className="text-6xl font-bold mb-2">10</p>
-              <p className="text-xl">Estados</p>
-            </div>
-            <div className="text-center">
-              <p className="text-6xl font-bold mb-2">1M+</p>
-              <p className="text-xl">Clientes atendidos</p>
-            </div>
-            <div className="text-center">
-              <p className="text-6xl font-bold mb-2">98%</p>
-              <p className="text-xl">Satisfação dos clientes</p>
-            </div>
+            <NumberCounter end={50} suffix="+" label="Unidades" />
+            <NumberCounter end={10} label="Estados" />
+            <NumberCounter end={1} suffix="M+" label="Clientes atendidos" />
+            <NumberCounter end={98} suffix="%" label="Satisfação dos clientes" />
           </div>
         </div>
       </section>
@@ -204,7 +200,7 @@ export default function FranchisePage() {
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
             <div className="flex justify-between items-center mb-6">
               <span className="text-xl font-semibold">Investimento total a partir de:</span>
-              <span className="text-3xl font-bold text-red-600">R$ 500.000</span>
+              <span className="text-3xl font-bold text-orange-600">R$ 500.000</span>
             </div>
             <div className="flex justify-between items-center mb-6">
               <span className="text-xl font-semibold">Faturamento médio mensal:</span>
@@ -259,7 +255,6 @@ export default function FranchisePage() {
           </div>
         </div>
       </section>
-
 
       {/* FAQ Section */}
       <section className="py-20">
@@ -316,3 +311,26 @@ export default function FranchisePage() {
     </div>
   )
 }
+
+interface NumberCounterProps {
+  end: number;
+  suffix?: string;
+  label: string;
+}
+
+const NumberCounter = ({ end, suffix = '', label }: NumberCounterProps) => {
+  return (
+    <motion.div
+      className="text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.p className="text-6xl font-bold mb-2">
+        <CountUp end={end} duration={2} />
+        {suffix}
+      </motion.p>
+      <p className="text-xl">{label}</p>
+    </motion.div>
+  );
+};

@@ -9,6 +9,7 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		
   		colors: {
 			"orange-poyos": "#ff7500",
   			background: 'hsl(var(--background))',
