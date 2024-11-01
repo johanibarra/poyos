@@ -117,7 +117,7 @@ export default function FranchisePage() {
 
       {/* Advantages Section */}
       <section id="advantages" className="py-20">
-        <div className="container mx-auto px-4 items-center justify-start flex flex-col gap-8 relative h-[550px]">
+        <div className="container mx-auto px-4 items-center justify-start flex flex-col gap-8 relative h-[1450px] md:h-[850px] lg:h-[650px]">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -127,10 +127,38 @@ export default function FranchisePage() {
             Por que ser um franqueado Poyos?
           </motion.h2>
           <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-[550px] h-[550px] absolute z-0 bottom-10 -left-[500px]"
+          >
+            <Image
+              src="/images/png/6.png"
+              alt="Poyos Restaurant"
+              fill
+              sizes="(min-width: 808px) 50vw, 100vw"
+              className="object-contain"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-[550px] h-[550px] absolute z-0 bottom-10 -right-[500px]"
+          >
+            <Image
+              src="/images/png/6.png"
+              alt="Poyos Restaurant"
+              fill
+              sizes="(min-width: 808px) 50vw, 100vw"
+              className="object-contain"
+            />
+          </motion.div>
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 absolute z-50 container top-28"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 absolute z-50 container top-36"
           >
             {[
               { title: "Gestão a distância", description: "Nosso modelo de negócio inovador, você pode administrar seu Poyos de qualquer lugar, mantendo a qualidade e o padrão da marca." },
@@ -220,151 +248,151 @@ export default function FranchisePage() {
                 transition={{ duration: 0.5 }}
                 className={`w - full md:w-1/3 px-4 mb-8`}
               >
-            <div className="bg-white rounded-lg shadow-lg p-6 h-full">
-              <div className="text-3xl font-bold text-yellow-500 mb-4">0{item.step}</div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p>{item.description}</p>
-            </div>
-          </motion.div>
+                <div className="bg-white rounded-lg shadow-lg p-6 h-full">
+                  <div className="text-3xl font-bold text-yellow-500 mb-4">0{item.step}</div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </motion.div>
             ))}
-        </div>
-        <div className="flex justify-center mt-8">
-          <Button onClick={prevStep} disabled={currentStep === 1} className="mr-4">
-            Anterior
-          </Button>
-          <Button onClick={nextStep} disabled={currentStep === 3}>
-            Próximo
-          </Button>
-        </div>
-    </div>
-      </section >
-
-    {/* About Section */ }
-    < motion.section
-  initial = {{ opacity: 0 }
-}
-animate = {{ opacity: 1 }}
-transition = {{ duration: 0.5 }}
-id = "about"
-className = "py-20 bg-gray-100"
-  >
-  <div className="container mx-auto px-4">
-    <div className="flex flex-wrap items-center justify-between">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full lg:w-1/2 mb-12 lg:mb-0"
-      >
-        <h2 className="text-4xl font-bold mb-6">Sobre o Poyos Crispy Chicken</h2>
-        <p className="text-lg mb-6">
-          O Poyos Crispy Chicken é uma marca inovadora no mercado de fast-food,
-          especializada em oferecer o melhor frango crocante da cidade. Fundada em 2015,
-          nossa marca cresceu rapidamente graças à qualidade incomparável de nossos produtos
-          e ao atendimento excepcional.
-        </p>
-        <p className="text-lg mb-6">
-          Nossa missão é levar a experiência única do Poyos Crispy Chicken para todo o Brasil,
-          e estamos em busca de empreendedores apaixonados para se juntar a nós nessa jornada.
-        </p>
-        <Button className="bg-orange-600 hover:bg-orange-700 text-white">
-          Saiba mais sobre nossa história
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-[650px] h-[550px] relative rounded-xl shadow-md overflow-hidden"
-      >
-        <Image
-          src="/images/interna.png"
-          alt="Poyos Restaurant"
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          className="object-cover"
-        />
-      </motion.div>
-    </div>
-  </div>
-      </motion.section >
-
-  {/* FAQ Section */ }
-  < motion.section
-initial = {{ opacity: 0, y: 50 }}
-animate = {{ opacity: 1, y: 0 }}
-transition = {{ duration: 0.5 }}
-className = "py-20"
-  >
-  <div className="container mx-auto px-4">
-    <h2 className="text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
-    <div className="max-w-3xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="mb-6"
-      >
-        <h3 className="text-xl font-semibold mb-2">Qual é o investimento inicial para abrir uma franquia Poyos?</h3>
-        <p>O investimento inicial para uma franquia Poyos Crispy Chicken varia a partir de R$ 500.000, dependendo da localização e do tamanho da unidade.</p>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-6"
-      >
-        <h3 className="text-xl font-semibold mb-2">Qual é o perfil ideal de um franqueado Poyos?</h3>
-        <p>Buscamos empreendedores apaixonados por gastronomia, com experiência em gestão de negócios e dedicação para operar uma franquia de sucesso.</p>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="mb-6"
-      >
-        <h3 className="text-xl font-semibold mb-2">Qual é o suporte oferecido aos franqueados?</h3>
-        <p>Oferecemos treinamento completo, suporte operacional contínuo, assistência em marketing e acesso a sistemas de gestão avançados.</p>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        <h3 className="text-xl font-semibold mb-2">Quais são as taxas contínuas da franquia?</h3>
-        <p>As taxas incluem royalties e taxa de marketing, que são um percentual do faturamento bruto. Os valores específicos são discutidos durante o processo de seleção.</p>
-      </motion.div>
-    </div>
-  </div>
-      </motion.section >
-
-  {/* Footer */ }
-  < footer className = "bg-gray-900 text-white py-12" >
-    <div className="container mx-auto px-4">
-      <div className="flex flex-wrap">
-        <div className="w-full md:w-1/3 mb-8 md:mb-0">
-          <h3 className="text-2xl font-bold mb-4">Poyos Crispy Chicken</h3>
-          <p>O melhor frango crocante do Brasil, agora em formato de franquia.</p>
-        </div>
-        <div className="w-full md:w-1/3 mb-8 md:mb-0">
-          <h4 className="text-xl font-semibold mb-4">Contato</h4>
-          <p>Email: franquias@poyos.com.br</p>
-          <p>Telefone: (11) 1234-5678</p>
-        </div>
-        <div className="w-full md:w-1/3">
-          <h4 className="text-xl font-semibold mb-4">Redes Sociais</h4>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-yellow-500">Facebook</a>
-            <a href="#" className="hover:text-yellow-500">Instagram</a>
-            <a href="#" className="hover:text-yellow-500">LinkedIn</a>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Button onClick={prevStep} disabled={currentStep === 1} className="mr-4">
+              Anterior
+            </Button>
+            <Button onClick={nextStep} disabled={currentStep === 3}>
+              Próximo
+            </Button>
           </div>
         </div>
-      </div>
-      <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-        <p>&copy; 2024 Poyos Crispy Chicken. Todos os direitos reservados.</p>
-      </div>
-    </div>
+      </section >
+
+      {/* About Section */}
+      < motion.section
+        initial={{ opacity: 0 }
+        }
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        id="about"
+        className="py-20 bg-gray-100"
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap items-center justify-between">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="w-full lg:w-1/2 mb-12 lg:mb-0"
+            >
+              <h2 className="text-4xl font-bold mb-6">Sobre o Poyos Crispy Chicken</h2>
+              <p className="text-lg mb-6">
+                O Poyos Crispy Chicken é uma marca inovadora no mercado de fast-food,
+                especializada em oferecer o melhor frango crocante da cidade. Fundada em 2015,
+                nossa marca cresceu rapidamente graças à qualidade incomparável de nossos produtos
+                e ao atendimento excepcional.
+              </p>
+              <p className="text-lg mb-6">
+                Nossa missão é levar a experiência única do Poyos Crispy Chicken para todo o Brasil,
+                e estamos em busca de empreendedores apaixonados para se juntar a nós nessa jornada.
+              </p>
+              <Button className="bg-orange-600 hover:bg-orange-700 text-white">
+                Saiba mais sobre nossa história
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="w-[650px] h-[550px] relative rounded-xl shadow-md overflow-hidden"
+            >
+              <Image
+                src="/images/interna.png"
+                alt="Poyos Restaurant"
+                fill
+                sizes="(min-width: 808px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </motion.section >
+
+      {/* FAQ Section */}
+      < motion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="py-20"
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-6"
+            >
+              <h3 className="text-xl font-semibold mb-2">Qual é o investimento inicial para abrir uma franquia Poyos?</h3>
+              <p>O investimento inicial para uma franquia Poyos Crispy Chicken varia a partir de R$ 500.000, dependendo da localização e do tamanho da unidade.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-6"
+            >
+              <h3 className="text-xl font-semibold mb-2">Qual é o perfil ideal de um franqueado Poyos?</h3>
+              <p>Buscamos empreendedores apaixonados por gastronomia, com experiência em gestão de negócios e dedicação para operar uma franquia de sucesso.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mb-6"
+            >
+              <h3 className="text-xl font-semibold mb-2">Qual é o suporte oferecido aos franqueados?</h3>
+              <p>Oferecemos treinamento completo, suporte operacional contínuo, assistência em marketing e acesso a sistemas de gestão avançados.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <h3 className="text-xl font-semibold mb-2">Quais são as taxas contínuas da franquia?</h3>
+              <p>As taxas incluem royalties e taxa de marketing, que são um percentual do faturamento bruto. Os valores específicos são discutidos durante o processo de seleção.</p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section >
+
+      {/* Footer */}
+      < footer className="bg-gray-900 text-white py-12" >
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap">
+            <div className="w-full md:w-1/3 mb-8 md:mb-0">
+              <h3 className="text-2xl font-bold mb-4">Poyos Crispy Chicken</h3>
+              <p>O melhor frango crocante do Brasil, agora em formato de franquia.</p>
+            </div>
+            <div className="w-full md:w-1/3 mb-8 md:mb-0">
+              <h4 className="text-xl font-semibold mb-4">Contato</h4>
+              <p>Email: franquias@poyos.com.br</p>
+              <p>Telefone: (11) 1234-5678</p>
+            </div>
+            <div className="w-full md:w-1/3">
+              <h4 className="text-xl font-semibold mb-4">Redes Sociais</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="hover:text-yellow-500">Facebook</a>
+                <a href="#" className="hover:text-yellow-500">Instagram</a>
+                <a href="#" className="hover:text-yellow-500">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p>&copy; 2024 Poyos Crispy Chicken. Todos os direitos reservados.</p>
+          </div>
+        </div>
       </footer >
     </div >
   )
