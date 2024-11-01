@@ -127,7 +127,8 @@ export default function FranchisePage() {
             Por que ser um franqueado Poyos?
           </motion.h2>
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+          
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-[550px] h-[550px] absolute z-0 bottom-10 -left-[500px]"
