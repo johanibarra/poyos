@@ -127,7 +127,6 @@ export default function FranchisePage() {
             Por que ser um franqueado Poyos?
           </motion.h2>
           <motion.div
-          
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -153,6 +152,34 @@ export default function FranchisePage() {
               fill
               sizes="(min-width: 808px) 50vw, 100vw"
               className="object-contain"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-[250px] h-[250px] absolute z-0 right-64 -bottom-[130px] "
+          >
+            <Image
+              src="/images/png/3.png"
+              alt="Poyos Restaurant"
+              fill
+              sizes="(min-width: 808px) 50vw, 100vw"
+              className="object-contain"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-[200px] h-[200px] absolute z-0 -left-4 sm:left-28 top-[50px] sm:top-[5px] "
+          >
+            <Image
+              src="/images/png/3.png"
+              alt="Poyos Restaurant"
+              fill
+              sizes="(min-width: 808px) 50vw, 100vw"
+              className="object-contain rotate-45"
             />
           </motion.div>
           <motion.div
