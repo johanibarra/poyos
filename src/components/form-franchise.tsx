@@ -5,6 +5,8 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
+import {motion} from 'framer-motion'
 
 export function FormFranchise() {
     const [state, handleSubmit, reset] = useForm("xovqeekv");
@@ -36,14 +38,24 @@ export function FormFranchise() {
     };
 
     return (
-        <div className="lg:w-1/2 max-w-md w-full">
+        <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+       className="lg:w-1/2 max-w-md w-full mt-10">
             <form
                 id="franchiseForm"
-                className="bg-white rounded-lg shadow-lg p-8"
+                className="bg-white rounded-2xl border-4 border-orange-poyos/40 shadow-lg p-8 relative"
                 onSubmit={onSubmit}
                 noValidate
             >
-                <h2 className="text-2xl font-bold text-center mb-6">Quero ser um franqueado</h2>
+                <Image
+                    width={300}
+                    height={300}
+                    src='/images/logo-orange.png'
+                    alt='Logo Poyos'
+                    className='w-72 h-12 absolute -top-10 left-1/2 transform -translate-x-1/2'/>
+                <h2 className="text-3xl font-bold text-center mb-6 uppercase">Quero ser um franqueado</h2>
                 {["name", "email", "phone", "subject"].map((field, index) => (
                     <div className="mb-4" key={index}>
                         <Input
@@ -61,6 +73,9 @@ export function FormFranchise() {
                     <Textarea placeholder="Mensagem" id="message" name="message" rows={4} className="w-full" required />
                     <ValidationError prefix="Mensagem" field="message" errors={state.errors} />
                 </div>
+                <div className="mb-6">
+                    <p className="text-center text-gray-400 w-[90%] flex mx-auto font-semibold">Ao enviar os dados acima, eu concordo em receber contatos e mensagens por meio do WhatsApp, Telefones e E-mails.</p>
+                </div>
                 <Button
                     type="submit"
                     disabled={isLoading}
@@ -76,6 +91,6 @@ export function FormFranchise() {
                     )}
                 </Button>
             </form>
-        </div>
+        </motion.div>
     );
 }
