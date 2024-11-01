@@ -38,7 +38,7 @@ export default function FranchisePage() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       {/* Hero Section with Contact Form */}
       <motion.section
         initial={{ opacity: 0 }}
