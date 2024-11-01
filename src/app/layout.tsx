@@ -16,6 +16,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: 'Poyos Crispy Chicken - Franquia de Frango Frito',
+  icons: '/favicon.png',
   description: 'Descubra a oportunidade de trazer a franquia Poyos Crispy Chicken para sua cidade. Oferecemos o melhor frango crocante com modelo de gestão a distância e suporte completo ao franqueado.',
   keywords: [
     'Poyos Crispy Chicken', 
@@ -27,13 +28,12 @@ export const metadata = {
   ],
   openGraph: {
     type: 'website',
-    url: 'https://www.poyoscrispychicken.com.br',
-    icons: '/public/favicon.png',
+    url: 'https://franquias.poyos.com.br',
     title: 'Poyos Crispy Chicken - Franquia de Frango Frito',
     description: 'Junte-se à Poyos Crispy Chicken e traga o melhor frango crocante para sua cidade! Modelo de franquia com gestão a distância e suporte completo.',
     images: [
       {
-        url: 'https://www.poyoscrispychicken.com.br/images/og-image.jpg',
+        url: 'https://opengraph.b-cdn.net/production/images/e5a0d969-61a6-4dc1-8ccb-c608431da58d.png?token=-YhJ78CHry_AWi-NZk7_Af40KXHnMDBBNV-iNGfsbAs&height=1200&width=1200&expires=33266489744',
         width: 1200,
         height: 630,
         alt: 'Logo Poyos Crispy Chicken',
@@ -43,15 +43,13 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@PoyosChicken',
     title: 'Poyos Crispy Chicken - Franquia de Frango Frito',
     description: 'Franquia de frango frito com modelo inovador e suporte completo. Torne-se um franqueado Poyos Crispy Chicken!',
-    image: 'https://www.poyoscrispychicken.com.br/images/og-image.jpg',
+    image: 'https://opengraph.b-cdn.net/production/images/e5a0d969-61a6-4dc1-8ccb-c608431da58d.png?token=-YhJ78CHry_AWi-NZk7_Af40KXHnMDBBNV-iNGfsbAs&height=1200&width=1200&expires=33266489744',
   },
    
-  
   robots: 'index, follow',
-  canonical: 'https://www.poyoscrispychicken.com.br',
+  canonical: 'https://franquias.poyos.com.br',
 }
 
 export default function RootLayout({
