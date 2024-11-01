@@ -80,7 +80,7 @@ export default function FranchisePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-4xl lg:text-5xl font-bold mb-4"
             >
-              Leve o melhor Frango frito para a sua cidade!
+              Leve o melhor frango frito para a sua cidade!
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: -20 }}
@@ -88,7 +88,7 @@ export default function FranchisePage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-xl lg:text-2xl"
             >
-              Modelo de negócio com gestão a distância.
+              Modelo de negócio com gestão à distância
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: -20 }}
