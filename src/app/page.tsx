@@ -280,8 +280,8 @@ export default function FranchisePage() {
                         alt={item.name}
                         quality={100}
                         priority
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        className='object-cover'
                       />
                     </div>
                   </CardHeader>
@@ -368,9 +368,8 @@ export default function FranchisePage() {
                   alt="Poyos Franchise"
                   quality={100}
                   priority
-                  layout="fill"
-                  objectFit="contain"
-                  className=''
+                  fill
+                  className='object-contain'
                 />
               </div>
             </motion.div>
