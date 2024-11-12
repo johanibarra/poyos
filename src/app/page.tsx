@@ -63,7 +63,7 @@ export default function FranchisePage() {
             priority
             src='/images/logo-desc.png'
             alt='Logo Poyos'
-            className='w-72 h-20 absolute -top-12 '
+            className='w-72 h-20 absolute -top-12 lg:top-28 '
           />
           <div className="text-center lg:text-left text-white lg:w-1/2 mb-12 lg:mb-0 mt-10">
             <motion.h1
