@@ -1,9 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronRight, Check, ArrowRight, FacebookIcon, InstagramIcon, TwitterIcon, LinkedinIcon } from 'lucide-react'
+import { ChevronRight, ArrowRight, FacebookIcon, InstagramIcon, LinkedinIcon } from 'lucide-react'
+import { Globe, Headphones, Star, Target, TrendingUp, Award } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { FormFranchise } from '@/components/form-franchise'
 import { NumberCounter } from '@/components/section-counter'
@@ -17,15 +18,18 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import Link from 'next/link'
 
 export default function FranchisePage() {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [isDesktop, setIsDesktop] = useState(false)
 
-  const nextStep = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, 3))
-  }
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024) // Assuming 1024px is your desktop breakpoint
+    }
 
-  const prevStep = () => {
-    setCurrentStep((prev) => Math.max(prev - 1, 1))
-  }
+    checkIsDesktop()
+    window.addEventListener('resize', checkIsDesktop)
+
+    return () => window.removeEventListener('resize', checkIsDesktop)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -47,7 +51,6 @@ export default function FranchisePage() {
 
   useEffect(() => {
     const script = document.createElement('script')
-    script.src = '//www.instagram.com/embed.js'
     script.async = true
     document.body.appendChild(script)
 
@@ -67,11 +70,13 @@ export default function FranchisePage() {
         <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
         <div className="relative z-10 container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
           <Image
-            width={300}
-            height={300}
-            src='/images/logo.png'
+            width={800}
+            height={800}
+            quality={100}
+            priority
+            src='/images/logo-desc.png'
             alt='Logo Poyos'
-            className='w-72 h-16 absolute -top-12 lg:top-32'
+            className='w-72 h-20 absolute -top-12 '
           />
           <div className="text-center lg:text-left text-white lg:w-1/2 mb-12 lg:mb-0 mt-10">
             <motion.h1
@@ -112,14 +117,15 @@ export default function FranchisePage() {
             </motion.div>
           </div>
 
-          <FormFranchise />
+          <div className={`lg:w-1/2 max-w-md w-full mt-10 ${isDesktop ? 'lg:fixed lg:right-36 lg:top-24 z-50' : ''}`}>
+            <FormFranchise />
+          </div>
         </div>
-      </motion.section >
+      </motion.section>
 
       {/* Numbers Section */}
-      < motion.section
-        initial={{ opacity: 0, y: 50 }
-        }
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         id="numbers"
@@ -127,16 +133,16 @@ export default function FranchisePage() {
       >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <NumberCounter end={50} suffix="+" label="Unidades" />
-            <NumberCounter end={10} label="Estados" />
+            <NumberCounter end={4} suffix="+" label="Unidades" />
+            <NumberCounter end={2} label="Estados" />
             <NumberCounter end={1000000} suffix="+" label="Clientes atendidos" />
             <NumberCounter end={100} suffix="%" label="Satisfação dos clientes" />
           </div>
         </div>
-      </motion.section >
+      </motion.section>
 
       {/* Video Section */}
-      < motion.section
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -153,10 +159,10 @@ export default function FranchisePage() {
             ></iframe>
           </div>
         </div>
-      </motion.section >
+      </motion.section>
 
       {/* Advantages Section */}
-      < section id="advantages" className="py-20" >
+      <section id="advantages" className="py-20">
         <div className="container mx-auto px-4 items-center justify-start flex flex-col gap-8 relative h-[1450px] md:h-[850px] lg:h-[650px]">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -170,12 +176,13 @@ export default function FranchisePage() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-[550px] h-[550px] absolute z-0 bottom-10 -left-[500px]"
+            className="w-[550px] h-[550px] absolute z-0 bottom-10 -left-[520px]"
           >
             <Image
-              src="/images/png/6.png"
+              src="/images/png/4.png"
               alt="Poyos Restaurant"
               fill
+              quality={100}
               sizes="(min-width: 808px) 50vw, 100vw"
               className="object-contain"
             />
@@ -184,12 +191,13 @@ export default function FranchisePage() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-[550px] h-[550px] absolute z-0 bottom-10 -right-[500px]"
+            className="w-[650px] h-[520px] absolute z-0 bottom-10 -right-[520px]"
           >
             <Image
-              src="/images/png/6.png"
+              src="/images/png/9.png"
               alt="Poyos Restaurant"
               fill
+              quality={100}
               sizes="(min-width: 808px) 50vw, 100vw"
               className="object-contain"
             />
@@ -226,28 +234,34 @@ export default function FranchisePage() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 absolute z-50 container top-36"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 absolute z-0 container top-36"
           >
             {[
-              { title: "Gestão a distância", description: "Nosso modelo de negócio inovador, você pode administrar seu Poyos de qualquer lugar, mantendo a qualidade e o padrão da marca." },
-              { title: "Suporte completo", description: "Oferecemos treinamento completo e suporte contínuo para o sucesso da sua operação." },
-              { title: "Produto de qualidade", description: "Nosso frango crocante é reconhecido pela qualidade e sabor inigualáveis." },
-              { title: "Marketing forte", description: "Estratégias de marketing eficientes para atrair e fidelizar clientes." },
-              { title: "Retorno atrativo", description: "Modelo de negócio com potencial de retorno rápido sobre o investimento." },
-              { title: "Marca reconhecida", description: "Faça parte de uma marca com forte presença no mercado e reconhecimento dos clientes." },
+              { title: "Gestão a distância", description: "Nosso modelo de negócio inovador, você pode administrar seu Poyos de qualquer lugar, mantendo a qualidade e o padrão da marca.", icon: <Globe /> },
+              { title: "Suporte completo", description: "Oferecemos treinamento completo e suporte contínuo para o sucesso da sua operação.", icon: <Headphones /> },
+              { title: "Produto de qualidade", description: "Nosso frango crocante é reconhecido pela qualidade e sabor inigualáveis.", icon: <Star /> },
+              { title: "Marketing forte", description: "Estratégias de marketing eficientes para atrair e fidelizar clientes.", icon: <Target /> },
+              { title: "Retorno atrativo", description: "Modelo de negócio com potencial de retorno rápido sobre o investimento.", icon: <TrendingUp /> },
+              { title: "Marca reconhecida", description: "Faça parte de uma marca com forte presença no mercado e reconhecimento dos clientes.", icon: <Award /> },
             ].map((item, index) => (
-              <motion.div key={index} variants={itemVariants} className={`${index === 0 ? "bg-orange-poyos hover:bg-orange-600 rounded-lg shadow-lg p-6 text-white" : "bg-white hover:bg-zinc-50 rounded-lg shadow-lg p-6"}`}>
-                <Check className={`${index === 0 ? "text-white w-12 h-12 mb-2" : "text-yellow-500 w-12 h-12 mb-2"} `} />
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className={`bg-white hover:bg-orange-poyos rounded-lg shadow-lg p-6 transition duration-300 ease-in-out text-black hover:text-white`}
+              >
+                <div className="text-4xl mb-2 text-yellow-500 hover:text-white">
+                  {item.icon}
+                </div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p>{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
-      </section >
+      </section>
 
       {/* Menu Gallery Section */}
-      < section id="menu-gallery" className="py-20 bg-gray-100" >
+      <section id="menu-gallery" className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -285,25 +299,15 @@ export default function FranchisePage() {
                       />
                     </div>
                   </CardHeader>
-                  {/* <CardContent className="p-4">
-                    <CardTitle className="text-xl mb-2">{item.name}</CardTitle>
-                    <CardDescription>{item.description}</CardDescription>
-                  </CardContent>
-                  <CardFooter className="flex justify-between items-center p-4">
-                    <span className="text-lg font-bold text-orange-poyos">{item.price}</span>
-                   <Button variant="outline" className="hover:bg-orange-poyos hover:text-white"> 
-                      Saiba mais
-                    </Button> 
-                 </CardFooter> */}
                 </Card>
               </motion.div>
             ))}
           </div>
         </div>
-      </section >
+      </section>
 
       {/* Investment Section */}
-      < motion.section
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -332,9 +336,8 @@ export default function FranchisePage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex justify-between items-center">
-
                     <span className="text-xl font-semibold">Investimento Inicial:</span>
-                    <span className="text-2xl font-bold">A partir de R$ 500.000</span>
+                    <span className="text-2xl font-bold">A partir de R$ 160.000</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-semibold">Faturamento médio mensal:</span>
@@ -342,11 +345,11 @@ export default function FranchisePage() {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-semibold">Prazo de retorno:</span>
-                    <span className="text-2xl font-bold">24 a 36 meses</span>
+                    <span className="text-2xl font-bold">18 a 24 meses</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-xl font-semibold">Taxa de franquia:</span>
-                    <span className="text-2xl font-bold">R$ 50.000</span>
+                    <span className="text-xl font-semibold">Faturamento anual:</span>
+                    <span className="text-2xl font-bold">R$ 1.8 milhões</span>
                   </div>
                 </CardContent>
                 <CardFooter>
@@ -375,10 +378,10 @@ export default function FranchisePage() {
             </motion.div>
           </div>
         </div>
-      </motion.section >
+      </motion.section>
 
       {/* Steps Section */}
-      < section className="py-20" >
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -386,39 +389,10 @@ export default function FranchisePage() {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold text-center mb-12"
           >
-            Processo de franquia
+            Nossas unidades
           </motion.h2>
-          <div className="flex flex-wrap justify-center">
-            {[
-              { step: 1, title: "Cadastro e Análise", description: "Preencha o formulário e nossa equipe analisará seu perfil." },
-              { step: 2, title: "Entrevista e Aprovação", description: "Realizaremos uma entrevista para conhecê-lo melhor e avaliar a parceria." },
-              { step: 3, title: "Assinatura e Inauguração", description: "Assinatura do contrato, treinamento e abertura da sua unidade Poyos." },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: currentStep === item.step ? 1 : 0.5, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className={`w-full md:w-1/3 px-4 mb-8`}
-              >
-                <div className="bg-white rounded-lg shadow-lg p-6 h-full">
-                  <div className="text-3xl font-bold text-yellow-500 mb-4">0{item.step}</div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-8">
-            <Button onClick={prevStep} disabled={currentStep === 1} className="mr-4">
-              Anterior
-            </Button>
-            <Button onClick={nextStep} disabled={currentStep === 3}>
-              Próximo
-            </Button>
-          </div>
         </div>
-      </section >
+      </section>
 
       <motion.section
         initial={{ opacity: 0 }}
@@ -496,7 +470,7 @@ export default function FranchisePage() {
               <AccordionItem value="item-1">
                 <AccordionTrigger>Qual é o investimento inicial para abrir uma franquia Poyos?</AccordionTrigger>
                 <AccordionContent>
-                  O investimento inicial para uma franquia Poyos Crispy Chicken varia a partir de R$ 500.000, dependendo da localização e do tamanho da unidade.
+                  O investimento inicial para uma franquia Poyos Crispy Chicken varia a partir de R$ 160.000, dependendo da localização e do tamanho da unidade.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
@@ -534,6 +508,7 @@ export default function FranchisePage() {
                 alt="Poyos Logo"
                 width={150}
                 height={50}
+                quality={100}
                 className="mb-4"
               />
             </div>
@@ -550,30 +525,31 @@ export default function FranchisePage() {
             <div>
               <h4 className="text-xl font-semibold mb-4">Contato</h4>
               <ul className="space-y-2">
-                <li>Email: franquias@poyos.com.br</li>
+                <li>
+                  <Link
+                    target="blank"
+                    href="mailto:franquias@poyos.com.br">
+                    franquias@poyos.com.br
+                  </Link>
+                </li>
                 <li><Link href="https://api.whatsapp.com/send/?phone=5541998050753&text=Quero+saber+mais+sobre+a+franquia+Poyos&type=phone_number&app_absent=0" target="_blank">Telefone: (41) 99805-0753</Link></li>
-                {/* <li>Endereço: Av. Paulista, 1000 - São Paulo, SP</li> */}
               </ul>
             </div>
             <div>
               <h4 className="text-xl font-semibold mb-4">Redes Sociais</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-white hover:text-orange-poyos transition-colors">
+                <Link href="https://www.facebook.com/profile.php?id=61560370360898" className="text-white hover:text-orange-poyos transition-colors">
                   <FacebookIcon className="h-6 w-6" />
                   <span className="sr-only">Facebook</span>
-                </a>
-                <a href="#" className="text-white hover:text-orange-poyos transition-colors">
+                </Link>
+                <Link href="https://www.instagram.com/poyosfranquias/" className="text-white hover:text-orange-poyos transition-colors">
                   <InstagramIcon className="h-6 w-6" />
                   <span className="sr-only">Instagram</span>
-                </a>
-                <a href="#" className="text-white hover:text-orange-poyos transition-colors">
-                  <TwitterIcon className="h-6 w-6" />
-                  <span className="sr-only">Twitter</span>
-                </a>
-                <a href="#" className="text-white hover:text-orange-poyos transition-colors">
+                </Link>
+                <Link href="https://www.linkedin.com/company/poyos/" className="text-white hover:text-orange-poyos transition-colors">
                   <LinkedinIcon className="h-6 w-6" />
                   <span className="sr-only">LinkedIn</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -581,7 +557,7 @@ export default function FranchisePage() {
             <p>&copy; {new Date().getFullYear()} Poyos Crispy Chicken. Todos os direitos reservados.</p>
           </div>
         </div>
-      </footer >
-    </div >
+      </footer>
+    </div>
   )
 }
