@@ -41,7 +41,7 @@ export function FormFranchise() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 1 }}
-       className="lg:w-[448px] max-w-md w-full mt-10 z-50">
+       className="lg:w-[448px] max-w-md w-full mt-10 z-50 h-full">
             <form
                 id="franchiseForm"
                 className="bg-white rounded-2xl border-4 border-orange-poyos/40 shadow-lg p-8 relative"
