@@ -423,69 +423,7 @@ export default function FranchisePage() {
             >
             
             
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="w-[120px] h-[120px] absolute z-30 left-[100px] top-[100px] sm:top-[220px] "
-              >
-                <Image
-                  src="/images/png/2.png"
-                  alt="Poyos Restaurant"
-                  quality={100}
-                  fill
-                  sizes="(min-width: 808px) 50vw, 100vw"
-                  className="object-contain -rotate-45"
-                />
-              </motion.div>
-            
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="w-[120px] h-[120px] absolute z-0 left-[150px] top-[100px] sm:top-[380px] "
-              >
-                <Image
-                  src="/images/png/2.png"
-                  alt="Poyos Restaurant"
-                  quality={100}
-                  fill
-                  sizes="(min-width: 808px) 50vw, 100vw"
-                  className="object-contain -rotate-45"
-                />
-              </motion.div>
-            
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="w-[170px] h-[170px] absolute z-0 right-[200px] top-[0px] sm:-top-[50px] "
-              >
-                <Image
-                  src="/images/png/3.png"
-                  alt="Poyos Restaurant"
-                  quality={100}
-                  fill
-                  sizes="(min-width: 808px) 50vw, 100vw"
-                  className="object-contain -rotate-5"
-                />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="w-[170px] h-[170px] absolute z-0 left-[200px] top-[90px] sm:top-[95px] "
-              >
-                <Image
-                  src="/images/png/3.png"
-                  alt="Poyos Restaurant"
-                  quality={100}
-                  fill
-                  sizes="(min-width: 808px) 50vw, 100vw"
-                  className="object-contain -rotate-5"
-                />
-              </motion.div>
-              <div className='w-[550px] h-[650px] relative'>
+              <div className='w-[650px] h-[650px] relative'>
                 <Image
                   src="/images/png/9.png"
                   alt="Poyos Restaurant Interior"
