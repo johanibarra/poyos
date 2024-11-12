@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronRight, ArrowRight, FacebookIcon, InstagramIcon, LinkedinIcon } from 'lucide-react'
+import { ChevronRight, ArrowRight, FacebookIcon, InstagramIcon, LinkedinIcon, MapPin, Clock, Phone } from 'lucide-react'
 import { Globe, Headphones, Star, Target, TrendingUp, Award } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { FormFranchise } from '@/components/form-franchise'
@@ -361,19 +361,64 @@ export default function FranchisePage() {
       </motion.section>
 
       {/* Steps Section */}
-      <section className="py-20">
+      <section id="locations" className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
             className="text-4xl font-bold text-center mb-12"
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5 }}
           >
-            Nossas unidades
+            Nossas Unidades
           </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { city: "São Paulo", address: "Av. Paulista, 1000", phone: "(11) 1234-5678", image: "/images/loja.png" },
+              { city: "Rio de Janeiro", address: "Av. Atlântica, 500", phone: "(21) 2345-6789", image: "/images/loja.png" },
+              { city: "Belo Horizonte", address: "Av. Afonso Pena, 1500", phone: "(31) 3456-7890", image: "/images/loja.png" },
+            ].map((location, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="overflow-hidden">
+                  <div className="relative h-64 w-full">
+                    <Image
+                      src={location.image}
+                      alt={`Poyos ${location.city}`}
+                      fill
+                      quality={100}
+                      className="object-cover"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <MapPin className="mr-2 text-orange-poyos" />
+                      {location.city}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="flex items-center mb-2">
+                      <Clock className="mr-2 text-orange-poyos" />
+                      Aberto todos os dias: 11h - 22h
+                    </p>
+                    <p className="flex items-center mb-2">
+                      <MapPin className="mr-2 text-orange-poyos" />
+                      {location.address}
+                    </p>
+                    <p className="flex items-center">
+                      <Phone className="mr-2 text-orange-poyos" />
+                      {location.phone}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -421,8 +466,8 @@ export default function FranchisePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-full lg:w-1/2 h-[550px] relative flex items-start justify-end "
             >
-            
-            
+
+
               <div className='w-[650px] h-[650px] relative'>
                 <Image
                   src="/images/png/9.png"
