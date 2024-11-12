@@ -52,7 +52,7 @@ export default function FranchisePage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative min-h-screen flex items-center justify-center bg-[url('../../public/images/1.png')] w-full bg-cover bg-bottom py-20"
+        className="relative min-h-screen flex items-center justify-center bg-[url('../../public/images/interna.png')] w-full bg-cover bg-bottom py-20"
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
         <div className="relative z-10 container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
