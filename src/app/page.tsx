@@ -16,6 +16,10 @@ import {
 } from "@/components/ui/accordion"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 export default function FranchisePage() {
   const containerVariants = {
@@ -135,15 +139,39 @@ export default function FranchisePage() {
         transition={{ duration: 0.5 }}
         className="py-20 bg-gray-100"
       >
-        <div className="container mx-auto px-4 flex flex-col gap-5 pb-36 items-center">
+        <div className="container mx-auto px-4 flex flex-col gap-5 items-center">
           <h2 className="text-4xl font-bold text-center mb-12">Conheça Mais Sobre o Poyos</h2>
-          <div className="flex max-w-sm w-full h-[500px] pt-4">
-            <iframe
-              src="https://www.instagram.com/reel/DA6eYQuJBl7/embed"
-              width="100%"
-              height="600"
-              className='rounded-xl shadow-lg'
-            ></iframe>
+          <div className="w-full max-w-sm">
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation
+              loop
+            >
+              <SwiperSlide>
+                <div className="h-[690px]">
+                  <iframe
+                    src="https://www.youtube.com/embed/gPaXeatBVaI"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full rounded-xl shadow-lg"
+                  ></iframe>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-[690px]">
+                  <iframe
+                    src="https://www.youtube.com/embed/gPaXeatBVaI"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full rounded-xl shadow-lg"
+                  ></iframe>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </motion.section>
@@ -317,7 +345,7 @@ export default function FranchisePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-full lg:w-1/2 text-orange-50 mb-8 lg:mb-0"
             >
-              <Card className="bg-green-600 text-orange-50 border-none shadow-xl">
+              <Card className="bg-gray-600 text-orange-50 border-none shadow-xl">
                 <CardHeader>
                   <CardTitle className="text-3xl font-bold">Detalhes do Investimento</CardTitle>
                 </CardHeader>
@@ -340,7 +368,7 @@ export default function FranchisePage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-green-50 text-green-600 hover:bg-green-100">
+                  <Button className="w-full bg-green-50 text-gray-600 hover:bg-green-100">
                     Solicite mais informações
                   </Button>
                 </CardFooter>
@@ -424,7 +452,7 @@ export default function FranchisePage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         id="about"
-        className="py-20 bg-gray-100"
+        className="pb-20 pt-5 bg-gray-100"
       >
         <div className="container mx-auto px-4">
 
