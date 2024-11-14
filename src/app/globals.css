@@ -67,3 +67,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-button-next {
+  color: #ff7500 !important
+}
+
+.swiper-button-prev{
+  color: #ff7500 !important
+}

@@ -132,7 +132,6 @@ export default function FranchisePage() {
         </div>
       </motion.section>
 
-      {/* Video Section */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -150,32 +149,47 @@ export default function FranchisePage() {
               loop
             >
               <SwiperSlide>
-                <div className="h-[690px]">
+                <div className="relative w-full mx-auto" style={{ paddingBottom: '177.78%', maxWidth: '415px' }}>
                   <iframe
-                    src="https://www.youtube.com/embed/gPaXeatBVaI"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    src="https://geo.dailymotion.com/player.html?video=x995uqu"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                      left: 0,
+                      top: 0,
+                      overflow: 'hidden'
+                    }}
                     allowFullScreen
-                    className="w-full h-full rounded-xl shadow-lg"
-                  ></iframe>
+                    title="Dailymotion Video Player"
+                    allow="web-share"
+                    className="rounded-xl shadow-lg"
+                  />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="h-[690px]">
+                <div className="relative w-full mx-auto" style={{ paddingBottom: '177.78%', maxWidth: '415px' }}>
                   <iframe
-                    src="https://www.youtube.com/embed/gPaXeatBVaI"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    src="https://geo.dailymotion.com/player.html?video=x995upk"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                      left: 0,
+                      top: 0,
+                      overflow: 'hidden'
+                    }}
                     allowFullScreen
-                    className="w-full h-full rounded-xl shadow-lg"
-                  ></iframe>
+                    title="Dailymotion Video Player"
+                    allow="web-share"
+                    className="rounded-xl shadow-lg"
+                  />
                 </div>
               </SwiperSlide>
             </Swiper>
           </div>
         </div>
       </motion.section>
-
       {/* Advantages Section */}
       <section id="advantages" className="py-20">
         <div className="container mx-auto px-4 items-center justify-start flex flex-col gap-8 relative h-[1450px] md:h-[850px] lg:h-[650px]">
@@ -401,9 +415,10 @@ export default function FranchisePage() {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { city: "São Paulo", address: "Av. Paulista, 1000", phone: "(11) 1234-5678", image: "/images/loja.png" },
-              { city: "Rio de Janeiro", address: "Av. Atlântica, 500", phone: "(21) 2345-6789", image: "/images/loja.png" },
-              { city: "Belo Horizonte", address: "Av. Afonso Pena, 1500", phone: "(31) 3456-7890", image: "/images/loja.png" },
+              { city: "Atuba", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/loja.png" },
+              { city: "Centro", address: "Av. Visc. de Guarapuava, 2832 - Centro, Curitiba", phone: "(41) 3203-6477", image: "/images/locations/uberaba/1.jpg" },
+              { city: "Jd. das Américas", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/uberaba/2.jpg" },
+              { city: "Bom Retiro", address: "Av. Desembargador Hugo Simas, 2010 - Loja 03 - Bom Retiro, Curitiba", phone: "(41) 4106-0025", image: "/images/locations/uberaba/3.jpg" },
             ].map((location, index) => (
               <motion.div
                 key={index}
