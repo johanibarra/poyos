@@ -348,7 +348,7 @@ export default function FranchisePage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-center mb-12 text-orange-100"
+            className="text-4xl font-bold text-center text-orange-100"
           >
             Investimento
           </motion.h2>
@@ -415,10 +415,18 @@ export default function FranchisePage() {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { city: "Atuba", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/loja.png" },
-              { city: "Centro", address: "Av. Visc. de Guarapuava, 2832 - Centro, Curitiba", phone: "(41) 3203-6477", image: "/images/locations/uberaba/1.jpg" },
-              { city: "Jd. das Américas", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/uberaba/2.jpg" },
-              { city: "Bom Retiro", address: "Av. Desembargador Hugo Simas, 2010 - Loja 03 - Bom Retiro, Curitiba", phone: "(41) 4106-0025", image: "/images/locations/uberaba/3.jpg" },
+              { city: "Atuba - PR", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/loja.png" },
+              { city: "Centro - PR", address: "Av. Visc. de Guarapuava, 2832 - Centro, Curitiba", phone: "(41) 3203-6477", image: "/images/loja.png" },
+              { city: "Jd. das Américas - PR", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/construcao.png" },
+              { city: "Bom Retiro - PR", address: "Av. Desembargador Hugo Simas, 2010 - Loja 03 - Bom Retiro, Curitiba", phone: "(41) 4106-0025", image: "/images/locations/uberaba/1.jpg" },
+
+              //sp
+
+              { city: "Vila Mariana - SP", address: "R. Rodrigues Batista, 57 - Vila Mariana, São Paulo", phone: "", image: "/images/locations/construcao.png" },
+              { city: "Campos Elíseos- SP", address: "Alameda Dino Bueno, 680 - Campos Elíseos, São Paulo", phone: "", image: "/images/locations/construcao.png" },
+              { city: "Brooklin - SP", address: "R. Guararapes, 218 - Brooklin, São Paulo", phone: "", image: "/images/locations/construcao.png" },
+              { city: "Pinheiros - SP", address: " R. Fradique Coutinho, 986 - Pinheiros, São Paulo", phone: "", image: "/images/locations/construcao.png" },
+              
             ].map((location, index) => (
               <motion.div
                 key={index}
@@ -467,7 +475,7 @@ export default function FranchisePage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         id="about"
-        className="pb-20 pt-5 bg-gray-100"
+        className="pb-20 pt-5 bg-gray-200"
       >
         <div className="container mx-auto px-4">
 
@@ -534,7 +542,7 @@ export default function FranchisePage() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="py-20"
+        className="py-20 bg-gray-50"
       >
         <div className="container mx-auto px-4 h-[380px]">
           <h2 className="text-4xl font-bold text-center mb-12">Perguntas Frequentes</h2>
