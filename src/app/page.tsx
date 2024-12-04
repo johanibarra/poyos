@@ -17,8 +17,9 @@ import {
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/autoplay';
 import 'swiper/css/navigation'
 
 export default function FranchisePage() {
@@ -145,6 +146,7 @@ export default function FranchisePage() {
               modules={[Navigation]}
               spaceBetween={30}
               slidesPerView={1}
+              draggable={true}
               navigation
               breakpoints={{
                 768: {
@@ -423,10 +425,14 @@ export default function FranchisePage() {
             Nossas Unidades
           </motion.h2>
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}
             navigation
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -631,8 +637,8 @@ export default function FranchisePage() {
                 <li>
                   <Link
                     target="blank"
-                    href="mailto:franquias@poyos.com.br">
-                    franquias@poyos.com.br
+                    href="mailto:franquia@poyos.com.br">
+                    franquia@poyos.com.br
                   </Link>
                 </li>
                 <li><Link href="https://api.whatsapp.com/send/?phone=5541998050753&text=Quero+saber+mais+sobre+a+franquia+Poyos&type=phone_number&app_absent=0" target="_blank">Telefone: (41) 99805-0753</Link></li>
