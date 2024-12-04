@@ -154,28 +154,43 @@ export default function FranchisePage() {
               }}
             >
               {[
-                { id: "x995uqu", title: "Video 1" },
-                { id: "x9a81s8", title: "Video 2" },
-                { id: "x9a82f8", title: "Video 3" },
-                { id: "x9a82g8", title: "Video 4" },
-                { id: "x9a82hi", title: "Video 5" },
+                { 
+                  id: "1036002435",
+                  hash: "c82e10d815",
+                  title: "Video 1" 
+                },
+                { 
+                  id: "1036002385",
+                  hash: "d2f1c88ee6",
+                  title: "Video 2" 
+                },
+                { 
+                  id: "1036002304",
+                  hash: "42fd7d039d",
+                  title: "Video 3" 
+                },
+                { 
+                  id: "1036001918",
+                  hash: "a66537ed0b",
+                  title: "Video 4" 
+                },
               ].map((video) => (
                 <SwiperSlide key={video.id}>
-                  <div className="relative w-full mx-auto" style={{ paddingBottom: '177.78%', maxWidth: '415px' }}>
+                  <div className="relative w-full mx-auto max-w-[331px] md:max-w-[351px]" style={{ paddingBottom: '142.78%'}}>
                     <iframe
-                      src={`https://geo.dailymotion.com/player.html?video=${video.id}`}
+                      src={`https://player.vimeo.com/video/${video.id}?h=${video.hash}&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0`}
                       style={{
                         width: '100%',
                         height: '100%',
                         position: 'absolute',
                         left: 0,
                         top: 0,
-                        overflow: 'hidden'
+                        overflow: 'hidden',
                       }}
                       allowFullScreen
                       title={video.title}
-                      allow="web-share"
-                      className="rounded-xl shadow-lg"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      className="rounded-2xl shadow-lg"
                     />
                   </div>
                 </SwiperSlide>
