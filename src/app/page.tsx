@@ -413,61 +413,74 @@ export default function FranchisePage() {
           >
             Nossas Unidades
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+            className="mySwiper"
+          >
             {[
               { city: "Atuba - PR", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/loja.png" },
               { city: "Centro - PR", address: "Av. Visc. de Guarapuava, 2832 - Centro, Curitiba", phone: "(41) 3203-6477", image: "/images/loja.png" },
               { city: "Jd. das Américas - PR", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/construcao.png" },
               { city: "Bom Retiro - PR", address: "Av. Desembargador Hugo Simas, 2010 - Loja 03 - Bom Retiro, Curitiba", phone: "(41) 4106-0025", image: "/images/locations/uberaba/1.jpg" },
-
-              //sp
-
               { city: "Vila Mariana - SP", address: "R. Rodrigues Batista, 57 - Vila Mariana, São Paulo", phone: "", image: "/images/locations/construcao.png" },
               { city: "Campos Elíseos- SP", address: "Alameda Dino Bueno, 680 - Campos Elíseos, São Paulo", phone: "", image: "/images/locations/construcao.png" },
               { city: "Brooklin - SP", address: "R. Guararapes, 218 - Brooklin, São Paulo", phone: "", image: "/images/locations/construcao.png" },
               { city: "Pinheiros - SP", address: " R. Fradique Coutinho, 986 - Pinheiros, São Paulo", phone: "", image: "/images/locations/construcao.png" },
-              
             ].map((location, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="overflow-hidden">
-                  <div className="relative h-64 w-full">
-                    <Image
-                      src={location.image}
-                      alt={`Poyos ${location.city}`}
-                      fill
-                      quality={100}
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <MapPin className="mr-2 text-orange-poyos" />
-                      {location.city}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="flex items-center mb-2">
-                      <Clock className="mr-2 text-orange-poyos" />
-                      Aberto todos os dias: 11h - 22h
-                    </p>
-                    <p className="flex items-center mb-2">
-                      <MapPin className="mr-2 text-orange-poyos" />
-                      {location.address}
-                    </p>
-                    <p className="flex items-center">
-                      <Phone className="mr-2 text-orange-poyos" />
-                      {location.phone}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="overflow-hidden h-full">
+                    <div className="relative h-64 w-full">
+                      <Image
+                        src={location.image}
+                        alt={`Poyos ${location.city}`}
+                        fill
+                        quality={100}
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="flex items-center">
+                        <MapPin className="mr-2 text-orange-poyos" />
+                        {location.city}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="flex items-center mb-2">
+                        <Clock className="mr-2 text-orange-poyos" />
+                        Aberto todos os dias: 11h - 22h
+                      </p>
+                      <p className="flex items-center mb-2">
+                        <MapPin className="mr-2 text-orange-poyos" />
+                        {location.address}
+                      </p>
+                      <p className="flex items-center">
+                        <Phone className="mr-2 text-orange-poyos" />
+                        {location.phone}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </section>
       <motion.section

@@ -63,9 +63,9 @@ export function FormFranchise() {
     };
 
     const investmentOptions = [
-        { value: "600k", label: "Até 600 mil" },
-        { value: "800k", label: "Até 800 mil" },
-        { value: "1m", label: "Até 1 milhão" },
+        { value: "160k", label: "Até 160 mil" },
+        { value: "300k", label: "Até 300 mil" },
+        { value: "500k", label: "Até 500 mil" },
         { value: "full", label: "Tenho todo o capital de investimento" },
         { value: "partial", label: "Tenho parte do capital e farei um financiamento/empréstimo" },
     ];
