@@ -140,52 +140,46 @@ export default function FranchisePage() {
       >
         <div className="container mx-auto px-4 flex flex-col gap-5 items-center">
           <h2 className="text-4xl font-bold text-center mb-12">Conheça Mais Sobre o Poyos</h2>
-          <div className="w-full max-w-sm">
+          <div className="w-full">
             <Swiper
               modules={[Navigation]}
               spaceBetween={30}
               slidesPerView={1}
               navigation
-              loop
+              breakpoints={{
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
             >
-              <SwiperSlide>
-                <div className="relative w-full mx-auto" style={{ paddingBottom: '177.78%', maxWidth: '415px' }}>
-                  <iframe
-                    src="https://geo.dailymotion.com/player.html?video=x995uqu"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      position: 'absolute',
-                      left: 0,
-                      top: 0,
-                      overflow: 'hidden'
-                    }}
-                    allowFullScreen
-                    title="Dailymotion Video Player"
-                    allow="web-share"
-                    className="rounded-xl shadow-lg"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full mx-auto" style={{ paddingBottom: '177.78%', maxWidth: '415px' }}>
-                  <iframe
-                    src="https://geo.dailymotion.com/player.html?video=x995upk"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      position: 'absolute',
-                      left: 0,
-                      top: 0,
-                      overflow: 'hidden'
-                    }}
-                    allowFullScreen
-                    title="Dailymotion Video Player"
-                    allow="web-share"
-                    className="rounded-xl shadow-lg"
-                  />
-                </div>
-              </SwiperSlide>
+              {[
+                { id: "x995uqu", title: "Video 1" },
+                { id: "x9a81s8", title: "Video 2" },
+                { id: "x9a82f8", title: "Video 3" },
+                { id: "x9a82g8", title: "Video 4" },
+                { id: "x9a82hi", title: "Video 5" },
+              ].map((video) => (
+                <SwiperSlide key={video.id}>
+                  <div className="relative w-full mx-auto" style={{ paddingBottom: '177.78%', maxWidth: '415px' }}>
+                    <iframe
+                      src={`https://geo.dailymotion.com/player.html?video=${video.id}`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        overflow: 'hidden'
+                      }}
+                      allowFullScreen
+                      title={video.title}
+                      allow="web-share"
+                      className="rounded-xl shadow-lg"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
@@ -433,12 +427,12 @@ export default function FranchisePage() {
             {[
               { city: "Atuba - PR", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/loja.png" },
               { city: "Centro - PR", address: "Av. Visc. de Guarapuava, 2832 - Centro, Curitiba", phone: "(41) 3203-6477", image: "/images/loja.png" },
-              { city: "Jd. das Américas - PR", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/construcao.png" },
+              { city: "Jd. das Américas - PR", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/em-breve.jpeg" },
               { city: "Bom Retiro - PR", address: "Av. Desembargador Hugo Simas, 2010 - Loja 03 - Bom Retiro, Curitiba", phone: "(41) 4106-0025", image: "/images/locations/uberaba/1.jpg" },
-              { city: "Vila Mariana - SP", address: "R. Rodrigues Batista, 57 - Vila Mariana, São Paulo", phone: "", image: "/images/locations/construcao.png" },
-              { city: "Campos Elíseos- SP", address: "Alameda Dino Bueno, 680 - Campos Elíseos, São Paulo", phone: "", image: "/images/locations/construcao.png" },
-              { city: "Brooklin - SP", address: "R. Guararapes, 218 - Brooklin, São Paulo", phone: "", image: "/images/locations/construcao.png" },
-              { city: "Pinheiros - SP", address: " R. Fradique Coutinho, 986 - Pinheiros, São Paulo", phone: "", image: "/images/locations/construcao.png" },
+              { city: "Vila Mariana - SP", address: "R. Rodrigues Batista, 57 - Vila Mariana, São Paulo", phone: "", image: "/images/locations/em-breve.jpeg" },
+              { city: "Campos Elíseos- SP", address: "Alameda Dino Bueno, 680 - Campos Elíseos, São Paulo", phone: "", image: "/images/locations/em-breve.jpeg" },
+              { city: "Brooklin - SP", address: "R. Guararapes, 218 - Brooklin, São Paulo", phone: "", image: "/images/locations/em-breve.jpeg" },
+              { city: "Pinheiros - SP", address: " R. Fradique Coutinho, 986 - Pinheiros, São Paulo", phone: "", image: "/images/locations/em-breve.jpeg" },
             ].map((location, index) => (
               <SwiperSlide key={index}>
                 <motion.div
@@ -447,7 +441,7 @@ export default function FranchisePage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card className="overflow-hidden h-full">
-                    <div className="relative h-64 w-full">
+                    <div className="relative h-[434px] w-full">
                       <Image
                         src={location.image}
                         alt={`Poyos ${location.city}`}
