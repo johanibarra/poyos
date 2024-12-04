@@ -200,7 +200,7 @@ export default function FranchisePage() {
         </div>
       </motion.section>
       {/* Advantages Section */}
-      <section id="advantages" className="py-20">
+      <section id="advantages" className="pt-20 pb-5">
         <div className="container mx-auto px-4 items-center justify-start flex flex-col gap-8 relative h-[1450px] md:h-[850px] lg:h-[650px]">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -273,7 +273,7 @@ export default function FranchisePage() {
             initial="hidden"
             animate="visible"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 absolute z-0 container top-36"
-          >
+            >
             {[
               { title: "Gestão a distância", description: "Nosso modelo de negócio inovador, você pode administrar seu Poyos de qualquer lugar, mantendo a qualidade e o padrão da marca.", icon: <Globe /> },
               { title: "Suporte completo", description: "Oferecemos treinamento completo e suporte contínuo para o sucesso da sua operação.", icon: <Headphones /> },
@@ -350,14 +350,14 @@ export default function FranchisePage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         id="investment"
-        className="py-20 bg-orange-500  pb-[200px] lg:pb-20"
+        className="py-20 bg-orange-500  pb-[100px] lg:pb-20"
       >
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-center text-orange-100"
+            className="text-4xl font-bold text-center text-orange-100 mb-10 md:mb-0"
           >
             Investimento
           </motion.h2>
@@ -501,7 +501,7 @@ export default function FranchisePage() {
       >
         <div className="container mx-auto px-4">
 
-          <div className="flex flex-wrap items-center justify-between ">
+          <div className="flex flex-wrap items-center justify-around ">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -537,11 +537,11 @@ export default function FranchisePage() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full lg:w-1/2 h-[550px] relative flex items-start justify-end "
+              className="w-full lg:w-1/2 h-full md:h-[550px] relative flex items-start justify-end "
             >
 
 
-              <div className='w-[650px] h-[650px] relative'>
+              <div className='w-[650px] h-[330px] md:h-[650px] relative'>
                 <Image
                   src="/images/png/9.png"
                   alt="Poyos Restaurant Interior"
