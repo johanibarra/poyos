@@ -68,8 +68,8 @@ export default function RootLayout({
           src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/48da2f9d-10ce-45ee-82e2-fd4c5a83c86a-loader.js"
           strategy="afterInteractive"
         />
-        <GoogleTagManager gtmId="G-PVN13S2G6B" />
-        <GoogleAnalytics gaId="G-PVN13S2G6B" />
+        <GoogleTagManager gtmId="G-J71H0Y6XWN" />
+        <GoogleAnalytics gaId="G-J71H0Y6XWN" />
         {children}
         <Toaster />
       </body>
