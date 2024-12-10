@@ -21,6 +21,7 @@ import { Autoplay, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay';
 import 'swiper/css/navigation'
+import VideoGallery from '@/components/video-gallery'
 
 export default function FranchisePage() {
   const containerVariants = {
@@ -133,74 +134,7 @@ export default function FranchisePage() {
         </div>
       </motion.section>
 
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="py-20 bg-gray-100"
-      >
-        <div className="container mx-auto px-4 flex flex-col gap-5 items-center">
-          <h2 className="text-4xl font-bold text-center mb-12">Conheça Mais Sobre o Poyos</h2>
-          <div className="w-full">
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={30}
-              slidesPerView={1}
-              draggable={true}
-              navigation
-              breakpoints={{
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-              }}
-            >
-              {[
-                {
-                  src: "https://fast.wistia.net/embed/iframe/5b84ztvesh?seo=false&videoFoam=true",
-                  title: "POYOS - VERTICAL Video",
-                },
-                {
-                  src: "https://fast.wistia.net/embed/iframe/dei05p33qd?seo=false&videoFoam=true",
-                  title: "REELS LOGO BRANCA Video",
-                },
-                {
-                  src: "https://fast.wistia.net/embed/iframe/umsdjb150b?seo=false&videoFoam=true",
-                  title: "POYOS VERTICAL CROP Video",
-                },
-                {
-                  src: "https://fast.wistia.net/embed/iframe/rb62ll0h1a?seo=false&videoFoam=true",
-                  title: "rigo-franquias Video",
-                },
-                {
-                  src: "https://fast.wistia.net/embed/iframe/h4sfqpp14r?seo=false&videoFoam=true",
-                  title: "INSTAGRAM Video",
-                },
-              ].map((video, index) => (
-                <SwiperSlide key={index}>
-                  <div className="relative w-full mx-auto max-w-[348px] h-[616px] " >
-                    <iframe
-                      src={video.src}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        position: 'absolute',
-                        left: 0,
-                        top: 0,
-                        overflow: 'hidden',
-                      }}
-                      allowFullScreen
-                      title={video.title}
-                      allow="autoplay; fullscreen"
-                      className="rounded-sm"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </motion.section>
+     <VideoGallery />
       {/* Advantages Section */}
       <section id="advantages" className="pt-20 pb-5">
         <div className="container mx-auto px-4 items-center justify-start flex flex-col gap-8 relative h-[1450px] md:h-[850px] lg:h-[650px]">
@@ -446,9 +380,9 @@ export default function FranchisePage() {
             className="mySwiper"
           >
             {[
-              { city: "Atuba - PR", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/loja.png" },
+              { city: "Atuba - PR", address: "Rua Júlio Bartolomeu Taborda Luiz, 194 - Atuba, Curitiba", phone: "(41) 3203-9003", image: "/images/locations/atuba/atuba.jpg" },
               { city: "Centro - PR", address: "Av. Visc. de Guarapuava, 2832 - Centro, Curitiba", phone: "(41) 3203-6477", image: "/images/loja.png" },
-              { city: "Jd. das Américas - PR", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/em-breve.jpeg" },
+              { city: "Jd. das Américas - PR", address: "R. Cap. Leônidas Marques, 480 - Loja 08 - Uberaba, Curitiba", phone: "(41) 3527-2003", image: "/images/locations/jardim/jardim.jpg" },
               { city: "Bom Retiro - PR", address: "Av. Desembargador Hugo Simas, 2010 - Loja 03 - Bom Retiro, Curitiba", phone: "(41) 4106-0025", image: "/images/locations/uberaba/1.jpg" },
               { city: "Vila Mariana - SP", address: "R. Rodrigues Batista, 57 - Vila Mariana, São Paulo", phone: "", image: "/images/locations/em-breve.jpeg" },
               { city: "Campos Elíseos- SP", address: "Alameda Dino Bueno, 680 - Campos Elíseos, São Paulo", phone: "", image: "/images/locations/em-breve.jpeg" },
@@ -516,7 +450,7 @@ export default function FranchisePage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-orange-poyos">Sobre o Poyos Crispy Chicken</h2>
               <p className="text-lg mb-6">
-                Fundado em 2015, o Poyos Crispy Chicken rapidamente se tornou sinônimo de excelência em frango crocante.
+                Fundado em 2019, o Poyos Crispy Chicken rapidamente se tornou sinônimo de excelência em frango crocante.
                 Nossa jornada começou com uma simples missão: oferecer o melhor frango frito do Brasil, combinando sabor
                 inigualável com um atendimento excepcional.
               </p>
