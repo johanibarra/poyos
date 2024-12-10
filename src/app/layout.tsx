@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,11 +21,11 @@ export const metadata = {
   icons: '/favicon.png',
   description: 'Descubra a oportunidade de trazer a franquia Poyos Crispy Chicken para sua cidade. Oferecemos o melhor frango crocante com modelo de gestão a distância e suporte completo ao franqueado.',
   keywords: [
-    'Poyos Crispy Chicken', 
-    'franquia de frango frito', 
-    'franquia de alimentação', 
-    'oportunidade de negócio', 
-    'franquia de fast food', 
+    'Poyos Crispy Chicken',
+    'franquia de frango frito',
+    'franquia de alimentação',
+    'oportunidade de negócio',
+    'franquia de fast food',
     'frango crocante'
   ],
   openGraph: {
@@ -47,7 +49,7 @@ export const metadata = {
     description: 'Franquia de frango frito com modelo inovador e suporte completo. Torne-se um franqueado Poyos Crispy Chicken!',
     image: 'https://opengraph.b-cdn.net/production/images/e5a0d969-61a6-4dc1-8ccb-c608431da58d.png?token=-YhJ78CHry_AWi-NZk7_Af40KXHnMDBBNV-iNGfsbAs&height=1200&width=1200&expires=33266489744',
   },
-   
+
   robots: 'index, follow',
   canonical: 'https://franquias.poyos.com.br',
 }
@@ -62,8 +64,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-          {children}
-          <Toaster />
+        <Script
+          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/48da2f9d-10ce-45ee-82e2-fd4c5a83c86a-loader.js"
+          strategy="afterInteractive"
+        />
+        <GoogleTagManager gtmId="G-PVN13S2G6B" />
+        <GoogleAnalytics gaId="G-PVN13S2G6B" />
+        {children}
+        <Toaster />
       </body>
     </html>
   );
