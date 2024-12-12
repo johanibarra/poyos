@@ -107,7 +107,7 @@ export function FormFranchise() {
                     </div>
                 ))}
                 
-                <div className="mb-4 relative  text-zinc-500" ref={dropdownRef}>
+                <div className="mb-4 relative text-zinc-500" ref={dropdownRef}>
                     <div
                         className="w-full p-2 border border-input bg-background text-sm ring-offset-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex justify-between items-center cursor-pointer"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -140,6 +140,13 @@ export function FormFranchise() {
                         )}
                     </AnimatePresence>
                 </div>
+
+                {/* Hidden input field for investment capital */}
+                <input
+                    type="hidden"
+                    name="investment_capital"
+                    value={investmentCapital}
+                />
 
                 <div className="mb-6">
                     <p className="text-center text-gray-400 w-[90%] flex mx-auto font-semibold">
