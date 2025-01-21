@@ -311,7 +311,7 @@ export default function FranchisePage() {
                 <CardContent className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-base md:text-xl font-semibold">Investimento Inicial:</span>
-                    <span className="text-lg md:text-2xl font-bold">A partir de R$ 60.000</span>
+                    <span className="text-lg md:text-2xl font-bold">A partir de R$ 180.000</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-base md:text-xl font-semibold">Faturamento médio mensal:</span>
@@ -513,7 +513,7 @@ export default function FranchisePage() {
               <AccordionItem value="item-1">
                 <AccordionTrigger>Qual é o investimento inicial para abrir uma franquia Poyos?</AccordionTrigger>
                 <AccordionContent >
-                  O investimento inicial para uma franquia Poyos Crispy Chicken varia a partir de R$ 60.000, dependendo da localização e do tamanho da unidade.
+                  O investimento inicial para uma franquia Poyos Crispy Chicken varia a partir de R$ 180.000, dependendo da localização e do tamanho da unidade.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
