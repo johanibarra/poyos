@@ -87,11 +87,8 @@ export function FormFranchise() {
     };
 
     const investmentOptions = [
-        { value: "160k", label: "Até 160 mil" },
-        { value: "300k", label: "Até 300 mil" },
-        { value: "500k", label: "Até 500 mil" },
-        { value: "full", label: "Tenho todo o capital de investimento" },
-        { value: "partial", label: "Tenho parte do capital e farei um financiamento/empréstimo" },
+        { value: "180k", label: "Até 180 mil" },
+        { value: "300k", label: "Até 300 mil" }
     ];
 
     return (
@@ -142,7 +139,7 @@ export function FormFranchise() {
                         <div className="mb-4" key={index}>
                             <Input
                                 type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
-                                placeholder={field === "name" ? "Nome completo" : field === "subject" ? "Cidade de interesse" : field === "email" ? "E-mail" : "Telefone"}
+                                placeholder={field === "name" ? "Nome" : field === "subject" ? "Cidade de interesse" : field === "email" ? "E-mail" : "Telefone"}
                                 id={field}
                                 name={field}
                                 className="w-full"
