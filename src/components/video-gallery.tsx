@@ -57,10 +57,6 @@ const VideoGallery = () => {
           >
             {[
               {
-                src: "https://fast.wistia.net/embed/iframe/5b84ztvesh?seo=false&videoFoam=true",
-                title: "POYOS - VERTICAL Video",
-              },
-              {
                 src: "https://fast.wistia.net/embed/iframe/dei05p33qd?seo=false&videoFoam=true",
                 title: "REELS LOGO BRANCA Video",
               },
