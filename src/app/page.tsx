@@ -413,10 +413,6 @@ export default function FranchisePage() {
                     </CardHeader>
                     <CardContent>
                       <p className="flex items-center mb-2">
-                        <Clock className="mr-2 text-orange-poyos" />
-                        Aberto todos os dias: 11h - 22h
-                      </p>
-                      <p className="flex items-center mb-2">
                         <MapPin className="mr-2 text-orange-poyos" />
                         {location.address}
                       </p>
