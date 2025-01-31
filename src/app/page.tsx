@@ -475,12 +475,10 @@ export default function FranchisePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-full lg:w-1/2 h-full md:h-[550px] relative flex items-start justify-end "
             >
-
-
-              <div className='w-[650px] h-[330px] md:h-[650px] relative'>
+              <div className='w-[650px] h-[330px] md:h-[610px] relative'>
                 <Image
-                  src="/images/png/9.png"
-                  alt="Poyos Restaurant Interior"
+                  src="/images/png/10.png"
+                  alt="Poyos Restaurant"
                   fill
                   sizes="(min-width: 808px) 50vw, 100vw"
                   className="object-contain"
