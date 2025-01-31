@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronRight, ArrowRight, FacebookIcon, InstagramIcon, LinkedinIcon, MapPin, Clock, Phone } from 'lucide-react'
+import { ChevronRight, ArrowRight, FacebookIcon, InstagramIcon, LinkedinIcon, MapPin, Phone } from 'lucide-react'
 import { Globe, Headphones, Star, Target, TrendingUp, Award } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { FormFranchise } from '@/components/form-franchise'
