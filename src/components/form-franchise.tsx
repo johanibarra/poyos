@@ -20,6 +20,10 @@ export function FormFranchise() {
   const [occupation, setOccupation] = useState("");
   const [isOccupationDropdownOpen, setIsOccupationDropdownOpen] =
     useState(false);
+    const contactHoursDropdownRef = useRef<HTMLDivElement>(null);
+    const [contactHours, setContactHours] = useState("");
+    const [isContactHoursDropdownOpen, setIsContactHoursDropdownOpen] =
+      useState(false);
 
   const handleGtagEvent = useCallback((formData: FormData) => {
     return new Promise<void>((resolve) => {
@@ -35,6 +39,8 @@ export function FormFranchise() {
         phone: formData.get("phone"),
         subject: formData.get("subject"),
         investment_capital: formData.get("investment_capital"),
+        occupation: formData.get("occupation"),
+        contactHours: formData.get("contactHours"),
       });
 
       setTimeout(resolve, 2000);
@@ -57,7 +63,7 @@ export function FormFranchise() {
   }, [state.succeeded, toast, reset]);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleInvestimentDropdownClickOutside = (event: MouseEvent) => {
       if (
         investimentDropdownRef.current &&
         !investimentDropdownRef.current.contains(event.target as Node)
@@ -66,9 +72,42 @@ export function FormFranchise() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleInvestimentDropdownClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleInvestimentDropdownClickOutside);
+    };
+  }, []);
+
+
+  useEffect(() => {
+    const handleOccupationDropdownClickOutside = (event: MouseEvent) => {
+      if (
+        occupationDropdownRef.current &&
+        !occupationDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOccupationDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOccupationDropdownClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleOccupationDropdownClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleContactHoursDropdownClickOutside = (event: MouseEvent) => {
+      if (
+        contactHoursDropdownRef.current &&
+        !contactHoursDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsContactHoursDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleContactHoursDropdownClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleContactHoursDropdownClickOutside);
     };
   }, []);
 
@@ -78,6 +117,8 @@ export function FormFranchise() {
       setIsLoading(true);
       const formData = new FormData(e.currentTarget);
       formData.append("investment_capital", investmentCapital);
+      formData.append("occupation", occupation);
+      formData.append("contactHours", contactHours);
 
       await handleGtagEvent(formData);
 
@@ -91,6 +132,21 @@ export function FormFranchise() {
           variant: "destructive",
         });
       }
+
+      if (!occupation) {
+        toast({
+          title: "Erro no formulário",
+          description: "Por favor, selecione a ocupação",
+          variant: "destructive",
+        });
+      }
+
+      if (!contactHours) {
+        toast({
+          title: "Erro no formulário",
+          description: "Por favor, selecione o horário de contato",
+        });
+      }
     }
   };
 
@@ -100,7 +156,6 @@ export function FormFranchise() {
     { value: "300k", label: "Até 300 mil" },
   ];
 
-  // Qual a sua ocupação atual
   const occupationOptions = [
     { value: "empresario", label: "Empreendedor/Empresário" },
     { value: "clt", label: "Funcionário CLT" },
@@ -108,6 +163,15 @@ export function FormFranchise() {
     { value: "aposentado", label: "Aposentado" },
     { value: "investidor", label: "Investidor" },
     { value: "outro", label: "Outro" },
+  ];
+
+  const contactHoursOptions = [
+    { value: "07h00_12h00", label: "Entre 07:00 e 12:00" },
+    { value: "10h00_12h00", label: "Entre 10:00 e 12:00" },
+    { value: "13h00_14h00", label: "Entre 13:00 e 14:00" },
+    { value: "15h00_17h00", label: "Entre 15:00 e 17:00" },
+    { value: "18h00_20h00", label: "Entre 18:00 e 20:00" },
+    { value: "apos_20h00", label: "Após 22:00" }
   ];
 
   return (
@@ -280,11 +344,52 @@ export function FormFranchise() {
             </AnimatePresence>
           </div>
 
-          <input
-            type="hidden"
-            name="occupation"
-            value={occupation}
-          />
+          <input type="hidden" name="occupation" value={occupation} />
+
+          <div
+            className="mb-4 relative text-zinc-500"
+            ref={contactHoursDropdownRef}
+          >
+            <div
+              className="w-full p-2 border border-input bg-background text-sm ring-offset-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex justify-between items-center cursor-pointer"
+              onClick={() =>
+                setIsContactHoursDropdownOpen(!isContactHoursDropdownOpen)
+              }
+            >
+              {contactHours
+                ? contactHoursOptions.find(
+                    (option) => option.value === contactHours
+                  )?.label
+                : "Qual é o melhor horário do dia para você receber uma ligação do nosso consultor?"}
+              <ChevronDown className="h-4 w-4 text-gray-400" />
+            </div>
+            <AnimatePresence>
+              {isContactHoursDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg"
+                >
+                  {contactHoursOptions.map((option) => (
+                    <div
+                      key={option.value}
+                      className="p-2 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => {
+                        setContactHours(option.value);
+                        setIsContactHoursDropdownOpen(false);
+                      }}
+                    >
+                      {option.label}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <input type="hidden" name="contactHours" value={contactHours} />
 
           <div className="mb-6">
             <p className="text-center text-gray-400 w-[90%] flex mx-auto font-semibold">
