@@ -569,7 +569,7 @@ export default function FranchisePage() {
                     franquia@poyos.com.br
                   </Link>
                 </li>
-                <li><Link href="https://api.whatsapp.com/send/?phone=5541998050753&text=Quero+saber+mais+sobre+a+franquia+Poyos&type=phone_number&app_absent=0" target="_blank">Telefone: (41) 99805-0753</Link></li>
+                <li><Link href="https://api.whatsapp.com/send/?phone=5541998050753&text=Quero+saber+mais+sobre+a+franquia+Poyos&type=phone_number&app_absent=0" target="_blank">Telefone: (41) 98807-8097</Link></li>
               </ul>
             </div>
             <div>
